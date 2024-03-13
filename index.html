@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AIMED Landing Page</title>
+  <link rel="icon" type="image/png" sizes="32x32" href=".\src\img\aimed-icon.png" />
+
+  <link rel="stylesheet" href="./dist/assets/css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body class="bg-base-200 overflow-x-hidden">
+  <header class="bg-white fixed w-full lg:px-[5em] z-50">
+    <div class="container max-w-screen-xl mx-auto flex justify-between items-center p-5 lg:py-0">
+      <img src="./src/img/aimed.png" alt="brand logo" style="max-width: 160px; height: auto;"/>
+      <nav class="hidden lg:block" aria-labelledby="header-nav-desktop">
+        <ul class="flex gap-3">
+          <li>
+            <a class="block px-3 py-5 relative font-primary text-primary after:content[''] after:absolute after:block after:bottom-0 after:left-0 after:h-1 after:w-0 after:bg-primary-gradient after:transition-all after:duration-150 after: hover:text-primary hover:after:w-full" href="">Home</a>
+          </li>
+          <li>
+            <a class="block px-3 py-5 relative after:content[''] after:absolute after:block after:bottom-0 after:left-0 after:h-1 after:w-0 after:bg-primary-gradient after:transition-all after:duration-150 after: hover:text-primary hover:after:w-full" href="">About</a>
+          </li>
+          <li>
+            <a class="block px-3 py-5 relative after:content[''] after:absolute after:block after:bottom-0 after:left-0 after:h-1 after:w-0 after:bg-primary-gradient after:transition-all after:duration-150 after: hover:text-primary hover:after:w-full" href="">Contact</a>
+          </li>
+          <li>
+            <a class="block px-3 py-5 relative after:content[''] after:absolute after:block after:bottom-0 after:left-0 after:h-1 after:w-0 after:bg-primary-gradient after:transition-all after:duration-150 after: hover:text-primary hover:after:w-full" href="">Blog</a>
+          </li>
+          <li>
+            <a class="block px-3 py-5 relative after:content[''] after:absolute after:block after:bottom-0 after:left-0 after:h-1 after:w-0 after:bg-primary-gradient after:transition-all after:duration-150 after: hover:text-primary hover:after:w-full" href="">Careers</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="hidden lg:block">
+        <a class="ds-btn ds-btn-primary ds-btn-wide" href="LoginSignup.html">Login | Signup</a>
+      </div>
+
+      <!-- burger icon on mobile -->
+      <nav class="nav__icon lg:hidden" aria-labelledby="header-nav-mobile">
+        <span></span>
+        <span></span>
+        <span></span>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="bg-white min-h-screen px-[2em] bg-hero-mobile bg-[80%_-30vh] bg-cover bg-no-repeat lg:px-[5em] lg:bg-hero-desktop lg:bg-[40vw_-28vh]">
+      <div class="container flex flex-col-reverse gap-10 max-w-screen-xl mx-auto pt-[4em] lg:min-h-screen lg:items-center lg:flex-row">
+        <!-- left col -->
+        <div class="flex flex-col gap-3 content-center items-start lg:h-100 lg:w-1/2 xl:w-2/5">
+          <h1 class="text-4xl md:text-5xl text-center mx-auto lg:text-left lg:mx-0 load-hidden animate-fade-in">
+            Next generation AI Powered healthcare and diagnosis
+          </h1>
+          <p class="text-center lg:text-left lg:w-4/5 load-hidden animate-fade-in animate-delay-200">
+            Answer questions for instant personalized reports, explore alternative medicines, and get disease predictions with diet recommendations. 
+            <br>Your wellness, simplified.
+          </p>
+          
+          <a href="#" class="ds-btn text-lg ds-btn-primary mx-auto lg:mx-0 load-hidden animate-fade-in animate-delay-300">Analyze Image</a>
+          <a href="#" class="ds-btn text-lg ds-btn-primary mx-auto lg:mx-0 load-hidden animate-fade-in animate-delay-300">Disease Prediction</a>
+        </div>
+
+        <!-- right col -->
+        <div class="relative overflow-hidden h-[50vh] md:h-[60vh] lg:static lg:h-auto">
+          <div class="absolute grid grid-cols-3 grid-rows-4 gap-5 bottom-0 lg:w-1/2 lg:right-0 lg:bottom-[unset] lg:top-2/4 lg:translate-y-[-40%] lg:translate-x-[7vw] lg:scale-60 xl:max-w-3/5 xl:grid-cols-[repeat(auto-fit,_minmax(150px,1fr))]">
+            <img class="w-[300px] object-contain row-start-2 row-span-2 load-hidden animate-slide-up" src="./src/img/phone-mockup-1.png" alt="" />
+            <img class="w-[300px] object-contain col-start-2 row-span-2 load-hidden animate-slide-up animate-delay-200" src="./src/img/phone-mockup-2.png" alt="" />
+            <img class="w-[300px] object-contain row-start-3 row-span-2 load-hidden animate-slide-up animate-delay-300" src="./src/img/phone-mockup-3.png" alt="" />
+            <img class="w-[300px] object-contain row-start-2 row-span-2 load-hidden animate-slide-up animate-delay-400" src="./src/img/phone-mockup-4.png" alt="" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why -->
+    <section class="bg-base-200 py-[3em] px-[2em] md:py-[4em] lg:p-[5em]">
+      <div class="container max-w-screen-xl mx-auto">
+        <div class="max-w-screen-sm load-hidden animate-fade-in animate-delay-200">
+          <h2 class="w-80 mx-auto mb-4 text-3xl text-center md:w-full md:text-4xl lg:text-left lg:ml-0">
+            Why choose Us?
+          </h2>
+          <p class="text-center lg:text-left">
+            Experience seamless integration of cutting-edge AI technologies, providing unparalleled personalized health insights and 
+            medication recommendations tailored to your individual needs.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap mt-10 md:mt-20">
+          <div class="flex flex-col items-center gap-5 p-5 w-full md:p-3 md:w-1/2 lg:w-1/4 lg:items-start load-hidden animate-slide-up">
+            <img class="aspect-square object-contain w-16" src="./src/img/icon-online.svg" alt="Online Banking" />
+            <h3 class="text-[1.25em] md:text-[1.75em] text-center lg:text-left">
+              Health <br>Assessment
+            </h3>
+            <p class="text-center lg:text-left">
+              Users can answer a series of questions related to their health, lifestyle, and medical history. Based on their responses, 
+              a health report is generated, providing insights into their current health status.
+            </p>
+          </div>
+
+          <div class="flex flex-col items-center gap-5 p-5 w-full md:p-3 md:w-1/2 lg:w-1/4 lg:items-start load-hidden animate-slide-up animate-delay-200">
+            <img class="aspect-square object-contain w-16" src="./src/img/icon-budgeting.svg" alt="Simple Budgeting" />
+            <h3 class="text-[1.25em] md:text-[1.75em] text-center lg:text-left">
+              Personalized Medication:
+            </h3>
+            <p class="text-center lg:text-left">
+              A Personalized drug combination recommendations based on individual health profiles and medical conditions. By analyzing user data and 
+              medical history, the system suggests the most effective and suitable medication combinations tailored to each user's specific needs.
+            </p>
+          </div>
+
+          <div class="flex flex-col items-center gap-5 p-5 w-full md:p-3 md:w-1/2 lg:w-1/4 lg:items-start load-hidden animate-slide-up animate-delay-300">
+            <img class="aspect-square object-contain w-16" src="./src/img/icon-onboarding.svg" alt="Fast Onboarding" />
+            <h3 class="text-[1.25em] md:text-[1.75em] text-center lg:text-left">
+              Medicine<br>Analysis
+            </h3>
+            <p class="text-center lg:text-left">
+              This feature enables the analysis of medicine images, automatically providing information on its uses, side effects, 
+              and potential interactions. Additionally, the system suggests alternative medicines.
+            </p>
+          </div>
+
+          <div class="flex flex-col items-center gap-5 p-5 w-full md:p-3 md:w-1/2 lg:w-1/4 lg:items-start load-hidden animate-slide-up animate-delay-400">
+            <img class="aspect-square object-contain w-16" src="./src/img/icon-api.svg" alt="Open API" />
+            <h3 class="text-[1.25em] md:text-[1.75em] text-center lg:text-left">
+              Prediction & Recommendations
+            </h3>
+            <p class="text-center lg:text-left">
+              Detects and predicts diseases based on various factors such as symptoms, medical history, and lifestyle. In addition to disease identification, 
+              the system offers personalized diet and food recommendations based on the symptoms.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Articles -->
+    <section class="bg-base-100 py-[4em] px-[2em] lg:p-[5em]">
+      <div class="container max-w-screen-xl mx-auto">
+        <h2 class="mx-auto mb-2 text-3xl text-center md:text-4xl lg:text-left lg:mx-0 load-hidden animate-fade-in">
+          Latest Articles
+        </h2>
+
+        <!-- Articles Cards -->
+        <div class="grid grid-cols-[repeat(auto-fill,_minmax(250px,_1fr))] gap-8 mt-8 md:mt-10 md:gap-5">
+          <!-- card -->
+          <div class="group bg-white rounded-md overflow-hidden cursor-pointer hover:drop-shadow-sm load-hidden animate-slide-up animate-delay-200">
+            <img class="object-cover w-full h-[250px] transition-transform duration-600 group-hover:scale-105" src="./src/img/image-currency.jpg" alt="Article thumbnail" />
+            <div class="flex flex-col gap-3 p-5 md:px-5 md:py-7">
+              <span class="text-xs">By WHO</span>
+              <h3 class="text-lg leading-6 group-hover:text-secondary">
+                Say hello to healthy lifestyle hacks
+              </h3>
+              <p>
+                Say hello to healthy lifestyle hacks Say hello to healthy lifestyle hacks
+                Say hello to healthy lifestyle hacks
+              </p>
+            </div>
+          </div>
+
+          <!-- card -->
+          <div class="group bg-white rounded-md overflow-hidden cursor-pointer hover:drop-shadow-sm load-hidden animate-slide-up animate-delay-300">
+            <img class="object-cover w-full h-[250px] transition-transform duration-600 group-hover:scale-105" src="./src/img/image-restaurant.jpg" alt="Article thumbnail" />
+            <div class="flex flex-col gap-3 p-5 md:px-5 md:py-7">
+              <span class="text-xs">By WHO</span>
+              <h3 class="text-lg leading-6 group-hover:text-secondary">
+                Treat yourself without worrying about money
+              </h3>
+              <p>
+                List of food and dishes which are healthy as well as tasty.
+              </p>
+            </div>
+          </div>
+
+          <!-- card -->
+          <div class="group bg-white rounded-md overflow-hidden cursor-pointer hover:drop-shadow-sm load-hidden animate-slide-up animate-delay-400">
+            <img class="object-cover w-full h-[250px] transition-transform duration-600 group-hover:scale-105" src="./src/img/image-plane.jpg" alt="Article thumbnail" />
+            <div class="flex flex-col gap-3 p-5 md:px-5 md:py-7">
+              <span class="text-xs">By WHO</span>
+              <h3 class="text-lg leading-6 group-hover:text-secondary">
+                Be aware of these medicinal drugs
+              </h3>
+              <p>
+                Be aware of these medicinal drugs Be aware of these medicinal drugs
+                Be aware of these medicinal drugs
+              </p>
+            </div>
+          </div>
+
+          <!-- card -->
+          <div class="group bg-white rounded-md overflow-hidden cursor-pointer hover:drop-shadow-sm load-hidden animate-slide-up animate-delay-500">
+            <img class="object-cover w-full h-[250px] transition-transform duration-600 group-hover:scale-105" src="./src/img/image-confetti.jpg" alt="Article thumbnail" />
+            <div class="flex flex-col gap-3 p-5 md:px-5 md:py-7">
+              <span class="text-xs">By WHO</span>
+              <h3 class="text-lg leading-6 group-hover:text-secondary">
+                Curated list of food items for healthy lifestyle!
+              </h3>
+              <p>
+                Curated list of food items for healthy lifestyle Curated list of food items for healthy lifestyle
+                Curated list of food items for healthy lifestyle!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-primary p-10 md:p-[5em]">
+    <div class="max-w-screen-xl mx-auto flex flex-wrap justify-between gap-3 lg:items-stretch lg:gap-0">
+      <!-- col 1 -->
+      <div class="w-full flex flex-col justify-between items-center gap-5 lg:w-1/5 lg:pr-5">
+        <!-- <img src="./src/img/aimed-icon.png" alt="brand logo" style="max-width: 60px; height: auto;"/> -->
+        <nav aria-labelledby="social-media-links">
+          <ul class="flex gap-5 my-2 lg:my-auto">
+            <li>
+              <a class="text-white hover:text-secondary text-xl lg:text-lg" href="#" aria-label="Facebook profile of <b>AI</b>MED">
+                <i class="fa-brands fa-square-facebook"></i>
+              </a>
+            </li>
+            <li>
+              <a class="text-white hover:text-secondary text-xl lg:text-lg" href="#" aria-label="Youtube account of <b>AI</b>MED">
+                <i class="fa-brands fa-youtube"></i>
+              </a>
+            </li>
+            <li>
+              <a class="text-white hover:text-secondary text-xl lg:text-lg" href="#" aria-label="Twitter profile of <b>AI</b>MED">
+                <i class="fa-brands fa-twitter"></i>
+              </a>
+            </li>
+            <li>
+              <a class="text-white hover:text-secondary text-xl lg:text-lg" href="#" aria-label="Pinterest profile of <b>AI</b>MED">
+                <i class="fa-brands fa-pinterest"></i>
+              </a>
+            </li>
+            <li>
+              <a class="text-white hover:text-secondary text-xl lg:text-lg" href="#" aria-label="Instagram profile of <b>AI</b>MED">
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <!-- col 2 -->
+      <div class="w-full flex flex-col gap-16 lg:w-1/5 lg:pr-5">
+        <nav aria-labelledby="footer-nav-1">
+          <ul class="flex flex-col items-center gap-3 lg:items-start lg:gap-5">
+            <li>
+              <a class="text-white hover:text-secondary" href="#">About Us</a>
+            </li>
+            <li>
+              <a class="text-white hover:text-secondary" href="#">Contact</a>
+            </li>
+            <li>
+              <a class="text-white hover:text-secondary" href="#">Blog</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <!-- col 3 -->
+      <div class="w-full flex flex-col gap-16 lg:w-1/5 lg:pr-5">
+        <nav aria-labelledby="footer-nav-2">
+          <ul class="flex flex-col items-center gap-3 lg:items-start lg:gap-5">
+            <li>
+              <a class="text-white hover:text-secondary" href="#">Careers</a>
+            </li>
+            <li>
+              <a class="text-white hover:text-secondary" href="#">Support</a>
+            </li>
+            <li>
+              <a class="text-white hover:text-secondary" href="#">Privacy Policy</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <!-- col 4 -->
+      <div class="w-full flex flex-col items-center lg:items-end lg:w-2/5">
+        <a class="ds-btn ds-btn-primary ds-btn-wide my-3 lg:my-auto" href="#">Start Diagnosing</a>
+
+        <span class="mt-4 mb-1">© <b>AI</b>MED. All Rights Reserved</span>
+        <div class="text-xs lg:text-right">
+          Coded by
+          <a class="text-secondary" target="_blank" href="https://www.linkedin.com/in/prashantzzz/">Prashant</a>
+          <a class="text-secondary" target="_blank" href="https://www.linkedin.com/in/prashantzzz/">Chirag</a>
+          <a class="text-secondary" target="_blank" href="https://www.linkedin.com/in/prashantzzz/">Piyush</a>
+          <a class="text-secondary" target="_blank" href="https://www.linkedin.com/in/prashantzzz/">Anas</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="nav__mobile-menu">
+    <ul class="flex flex-col items-center gap-4">
+      <li>
+        <a href="index.html" class="font-tertiary text-secondary">Home</a>
+      </li>
+      <li><a href="#" class="font-tertiary text-primary">About</a></li>
+      <li><a href="#" class="font-tertiary text-primary">Contact</a></li>
+      <li><a href="#" class="font-tertiary text-primary">Blog</a></li>
+      <li><a href="#" class="font-tertiary text-primary">Career</a></li>
+    </ul>
+  </div>
+</body>
+<script src="dist/bundle.js"></script>
+
+</html>
