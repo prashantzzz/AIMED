@@ -32,3 +32,6 @@ We would like to thank all contributors to this project for their valuable contr
 For any questions or feedback, please contact [email@example.com](mailto:email@example.com).
 
 Enjoy using the Health Companion App and stay healthy!
+
+## Contributes
+Prashant & Chirag
