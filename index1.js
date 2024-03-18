@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function(){
             
         }).catch((error) => {
             console.log(error);
-            alert(error);
+            alert("Invalid Credentails");
         });
     });
 
