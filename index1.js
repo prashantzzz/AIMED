@@ -1,25 +1,3 @@
-/////////////////////////// Code written by Viraj ///////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////
-
-// localStorage['user'] = {"user_id": null}
-
-// // Add event listener for storage changes
-// document.addEventListener('storage', function(event) {
-//     console.log("Hello");
-//     console.log(event);
-//     if (event.key === 'user') {
-//         // Handle the change in localStorage
-//         console.log('localStorage item has been changed:', event.newValue);
-//     }
-// });
-
-/////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////
-
 document.addEventListener('DOMContentLoaded', function(){
     const { Client } = Appwrite;
     const client = new Client();
@@ -68,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function(){
         console.log('auth-btn element:', authBtn);
         authBtn.textContent = "logout";
         console.log('auth-btn element:', authBtn);
-        window.location.href = 'index.html';
+        // window.location.href = 'index.html';
         }
         catch (error) {
             console.log('Error fetching data:', error);
@@ -131,6 +109,7 @@ document.addEventListener('DOMContentLoaded', function(){
             
         }).catch((error) => {
             console.log(error);
+            alert(error);
         });
     });
 
