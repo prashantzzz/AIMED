@@ -1,5 +1,4 @@
 #https://github.com/itachi9604/healthcare-chatbot
-
 import re
 import pandas as pd
 from sklearn import preprocessing
@@ -12,14 +11,13 @@ import csv
 import warnings
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 
-training = pd.read_csv('Data/Training.csv')
-testing= pd.read_csv('Data/Testing.csv')
+training = pd.read_csv('healthcare-chatbot-master/Data/Training.csv')
+testing= pd.read_csv('healthcare-chatbot-master/Data/Testing.csv')
 cols= training.columns
 cols= cols[:-1]
 x = training[cols]
 y = training['prognosis']
 y1= y
-
 
 reduced_data = training.groupby(training['prognosis']).max()
 
@@ -74,7 +72,7 @@ def calc_condition(exp,days):
 
 def getDescription():
     global description_list
-    with open('MasterData/symptom_Description.csv') as csv_file:
+    with open('healthcare-chatbot-master/MasterData/symptom_Description.csv') as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
         line_count = 0
         for row in csv_reader:
@@ -84,7 +82,7 @@ def getDescription():
 
 def getSeverityDict():
     global severityDictionary
-    with open('MasterData/symptom_severity.csv') as csv_file:
+    with open('healthcare-chatbot-master/MasterData/symptom_severity.csv') as csv_file:
 
         csv_reader = csv.reader(csv_file, delimiter=',')
         line_count = 0
@@ -98,7 +96,7 @@ def getSeverityDict():
 
 def getprecautionDict():
     global precautionDictionary
-    with open('MasterData/symptom_precaution.csv') as csv_file:
+    with open('healthcare-chatbot-master/MasterData/symptom_precaution.csv') as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
         line_count = 0
         for row in csv_reader:
@@ -107,7 +105,7 @@ def getprecautionDict():
 
 def getfood_avoid():
     global food_avoid
-    with open('MasterData/Disease_avoid_food.csv', mode='r', newline='') as csv_file:
+    with open('healthcare-chatbot-master/MasterData/Disease_avoid_food.csv', mode='r', newline='') as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
         line_count = 0
         for row in csv_reader:
