@@ -7,14 +7,13 @@
     <title>Tesseract.js OCR demo</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="icon" type="image/png" sizes="32x32" href=".\src\img\aimed-icon.png" />
-    <link rel="stylesheet" href="./dist/assets/css/style.css" />
-    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"/> 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+    <link rel="stylesheet" href="./dist/assets/css/style.css" />
 </head>
 
 <style>
+    
 progress {
   appearance: none;
   width: 100%;
@@ -98,7 +97,7 @@ progress[value="1"]::-webkit-progress-value {
                        data-multiple-caption="{count} files selected" multiple/>
                 <label for="file-1"
                        class="cursor-pointer bg-blue-500 text-white py-2 px-4 rounded-md shadow-sm hover:bg-blue-600 block w-full text-center mb-4">
-                    <span>Choose a file&hellip;</span>
+                    <span>Choose a file</span>
                 </label>
                 <div class="image-container bg-gray-200 rounded-lg overflow-hidden">
                     <img id="selected-image" src="src/img/demo-rx.png" class="max-h-80" alt="Selected Image">
@@ -109,7 +108,7 @@ progress[value="1"]::-webkit-progress-value {
         <div>
             <div id="log" class="bg-white rounded-lg p-4 whitespace-normal">
                 <span id="startPre" class="block text-center whitespace-normal">
-                    <button id="startLink" class="cursor-pointer bg-blue-500 text-white py-2 px-4 rounded-md shadow-sm hover:bg-blue-600 block w-full text-center mb-4">
+                    <button id="startLink" class="cursor-pointer bg-blue-500 text-white py-2 px-4 rounded-md shadow-sm hover:bg-blue-600 block w-full text-center mb-4 animate-fade-in animate-delay-300">
                         Extract Text
                     </button>
                     Choose language in the prescription
@@ -193,14 +192,14 @@ progress[value="1"]::-webkit-progress-value {
         <nav aria-labelledby="footer-nav-2">
           <ul class="flex flex-col items-center gap-3 lg:items-start lg:gap-5">
             <li>
-              <a class="text-white hover:text-secondary" href="#">Careers</a>
-            </li>
-            <li>
-              <a class="text-white hover:text-secondary" href="#">Support</a>
-            </li>
-            <li>
-              <a class="text-white hover:text-secondary" href="#">Privacy Policy</a>
-            </li>
+                <a class="text-white hover:text-secondary" href="#">Privacy Policy</a>
+              </li>
+              <li>
+                <a class="text-white hover:text-secondary" href="#">aimed@support.com</a>
+              </li>
+              <li>
+                <a class="text-white hover:text-secondary" href="#">VIT Vellore, Chennai</a>
+              </li>
           </ul>
         </nav>
       </div>
@@ -243,8 +242,6 @@ progress[value="1"]::-webkit-progress-value {
 <script src="https://kit.fontawesome.com/4414288e8e.js"></script>
 <script src='js/tesseract.min.js'></script>
 <script src="js/tesseract-ocr.js"></script>
-<script>
-    // JavaScript logic here
-</script>
+    
 </body>
 </html>

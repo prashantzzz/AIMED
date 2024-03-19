@@ -23,7 +23,7 @@ $( document ).ready(function() {
 				}
 				let file = this.files[0];
 				reader.readAsDataURL(file);
-				startRecognize(file);
+				recognizeFile(file);
 			}
 			else{
 				label.innerHTML = labelVal;
@@ -40,12 +40,9 @@ $( document ).ready(function() {
 
 $("#startLink").click(function () {
 	var img = document.getElementById('selected-image');
-	startRecognize(img);
+	recognizeFile(img);
 });
 
-function startRecognize(img){
-	recognizeFile(img);
-}
 
 function progressUpdate(packet){
 	var log = document.getElementById('log');
