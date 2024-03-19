@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const client = new Client();
   const signupForm = document.querySelector("#signupform");
   const loginForm = document.querySelector("#loginform");
-  var loggedin = false;
 
   client
     .setEndpoint("https://cloud.appwrite.io/v1")
@@ -16,14 +15,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (user) {
       console.log("entered");
-      const authBtn = document.getElementById("auth-btn");
-      authBtn.innerHTML = "Logout";
-      authBtn.addEventListener("click", logout);
+      const authBtnP = document.getElementById("auth-btn-phone");
+      const authBtnD = document.getElementById("auth-btn-desktop");
+      authBtnP.innerHTML = "Logout";
+      authBtnD.innerHTML = "Logout";
+      authBtnP.addEventListener("click", logout);
+      authBtnD.addEventListener("click", logout);
     } else {
       console.log("not entered");
-      authBtn.innerHTML = "Login / Signup";
-      authBtn.removeEventListener("click", logout);
-      authBtn.addEventListener("click", () => {
+      authBtnP.innerHTML = "Login / Signup";
+      authBtnD.innerHTML = "Login / Signup";
+      authBtnP.removeEventListener("click", logout);
+      authBtnD.removeEventListener("click", logout);
+      authBtnP.addEventListener("click", () => {
+        authHandler();
+        window.location.href = "LoginSignup.html";
+      });
+      authBtnD.addEventListener("click", () => {
         authHandler();
         window.location.href = "LoginSignup.html";
       });
