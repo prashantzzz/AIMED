@@ -71,9 +71,7 @@ function progressUpdate(packet) {
             pre.appendChild(document.createTextNode(packet.data.text.replace(/\n\s*\n/g, '\n')))
             line.innerHTML = ''
             line.appendChild(pre)
-
         }
-
         log.insertBefore(line, log.firstChild)
     }
 }
