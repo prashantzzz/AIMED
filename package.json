@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "repository": "https://github.com/piajuan/fm-easybank.git",
-  "author": "Pia Juan <piajuan.dev@gmail.com>",
+  "author": "Prashant <prashant2003prashant@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "@gradio/client": "^0.14.0",

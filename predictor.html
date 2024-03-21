@@ -1,145 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AIMED Scan</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="icon" type="image/png" sizes="32x32" href=".\src\img\aimed-icon.png" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="./dist/assets/css/style.css" />
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AIMED Predictor</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link rel="icon" type="image/png" sizes="32x32" href=".\src\img\aimed-icon.png" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./dist/assets/css/style.css" />
 </head>
 
-<style>
-  /* Hide the image when src attribute is empty */
-  img[src=""] {
-      display: none;
-  }
-
-
-progress {
-  appearance: none;
-  width: 100%;
-  height: 15px; /* Adjust height as needed */
-  border-radius: 9999px; /* Large value for rounded corners */
-  background-color: #e5e7eb; /* Background color */
-  overflow: hidden; /* Hide the default border */
-}
-
-/* Style for the progress bar */
-progress::-webkit-progress-bar {
-  background-color: transparent; /* Transparent background for the progress bar */
-}
-
-/* Style for the progress value */
-progress::-webkit-progress-value {
-  background-color: #3b82f6; /* Progress bar color */
-  border-radius: 9999px; /* Large value for rounded corners */
-}
-
-/* Additional styles for the progress */
-progress[value="1"]::-webkit-progress-value {
-  opacity: 0.5; /* Adjust opacity as needed */
-}
-
-</style>
-
 <body class="bg-gray-100">
-
-    	<!--Header-->
-    <header class="bg-white fixed w-full lg:px-[5em] z-50 bg-base-200 overflow-x-hidden">
-        <div class="container max-w-screen-xl mx-auto flex justify-between items-center p-5 lg:py-0">
-            <a href="index.html"><img src="./src/img/aimed-removed.png" alt="brand logo" style="max-width: 160px; height: auto;"/></a>
-            <nav class="hidden lg:block" aria-labelledby="header-nav-desktop">
-            <ul class="flex gap-3">
-              <li>
-                <a class="block px-3 py-5 relative after:content[''] after:absolute after:block after:bottom-0 after:left-0 after:h-1 after:w-0 after:bg-primary-gradient after:transition-all after:duration-150 after: hover:text-primary hover:after:w-full" href="index.html">Home</a>
-              </li>
-              <li>
-                <a class="block px-3 py-5 relative after:content[''] after:absolute after:block after:bottom-0 after:left-0 after:h-1 after:w-0 after:bg-primary-gradient after:transition-all after:duration-150 after: hover:text-primary hover:after:w-full" href="">About</a>
-              </li>
-              <li>
-                <a class="block px-3 py-5 relative after:content[''] after:absolute after:block after:bottom-0 after:left-0 after:h-1 after:w-0 after:bg-primary-gradient after:transition-all after:duration-150 after: hover:text-primary hover:after:w-full" href="">Contact</a>
-              </li>
-              <li>
-                <a class="block px-3 py-5 relative font-primary text-primary after:content[''] after:absolute after:block after:bottom-0 after:left-0 after:h-1 after:w-0 after:bg-primary-gradient after:transition-all after:duration-150 after: hover:text-primary hover:after:w-full" href="blogs.html">Blog</a>
-              </li>
-              
-            </ul>
-          </nav>
-          <div class="hidden lg:block">
-            <a class="ds-btn ds-btn-primary ds-btn-wide" href="LoginSignup.html">Login | Signup</a>
-          </div>
-    
-          <!-- burger icon on mobile -->
-          <nav class="nav__icon lg:hidden" aria-labelledby="header-nav-mobile">
-            <span></span>
-            <span></span>
-            <span></span>
-          </nav>
-        </div>
-    </header>
-
-    <div class="w-full m-0 p-0 bg-cover bg-bottom" style="background-image:url('./src/img/cover.jpg'); max-height:2100px;">
-			<div class="font-extrabold container max-w-4xl mx-auto pt-28 pb-6 md:pb-10 text-center">
-				
-					<div class="text-white text-2xl md:text-5xl sm:text-4xl">
-						Analyze Tool
-          </div>
-			</div>
-	  </div>
-    <main class="container mx-auto px-4 py-8">
-      <!-- Grid for parallel div blocks -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-  
-          <!-- Div for input image and display -->
-          <div  class="bg-white rounded-lg p-4 whitespace-normal">
-            <button id="choose-btn" class="ds-btn ds-btn-primary ds-btn-wide block w-full mb-4">
-              Choose Image
-            </button>
-            <div class="image-container bg-gray-200 rounded-lg overflow-hidden">
-              <img id="selected-image" src="" class="max-h-80" alt="Selected Image">
-            </div>
-          </div>
-  
-          <!-- Div for showing the extracted text -->
-          <div id="display-text" class="bg-white rounded-lg p-4 whitespace-normal">
-            <button id="extract-btn" class="ds-btn ds-btn-primary ds-btn-wide block w-full mb-4">
-              Extract Text
-            </button>
-            Output will be shown here
-          </div>      
+  <!--Header-->
+  <header class="bg-white fixed w-full lg:px-[5em] z-50 bg-base-200 overflow-x-hidden">
+    <div class="container max-w-screen-xl mx-auto flex justify-between items-center p-5 lg:py-0">
+      <a href="index.html"><img src="./src/img/aimed-removed.png" alt="brand logo"
+          style="max-width: 160px; height: auto" /></a>
+      <nav class="hidden lg:block" aria-labelledby="header-nav-desktop">
+        <ul class="flex gap-3">
+          <li>
+            <a class="block px-3 py-5 relative after:content[''] after:absolute after:block after:bottom-0 after:left-0 after:h-1 after:w-0 after:bg-primary-gradient after:transition-all after:duration-150 after: hover:text-primary hover:after:w-full"
+              href="index.html">Home</a>
+          </li>
+          <li>
+            <a class="block px-3 py-5 relative after:content[''] after:absolute after:block after:bottom-0 after:left-0 after:h-1 after:w-0 after:bg-primary-gradient after:transition-all after:duration-150 after: hover:text-primary hover:after:w-full"
+              href="">About</a>
+          </li>
+          <li>
+            <a class="block px-3 py-5 relative after:content[''] after:absolute after:block after:bottom-0 after:left-0 after:h-1 after:w-0 after:bg-primary-gradient after:transition-all after:duration-150 after: hover:text-primary hover:after:w-full"
+              href="">Contact</a>
+          </li>
+          <li>
+            <a class="block px-3 py-5 relative font-primary text-primary after:content[''] after:absolute after:block after:bottom-0 after:left-0 after:h-1 after:w-0 after:bg-primary-gradient after:transition-all after:duration-150 after: hover:text-primary hover:after:w-full"
+              href="blogs.html">Blog</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="hidden lg:block">
+        <a class="ds-btn ds-btn-primary ds-btn-wide" href="LoginSignup.html">Login | Signup</a>
       </div>
-  </main>
-  
-  <script>
-  // Import necessary functions from @gradio/client
-  import { client } from "@gradio/client";
 
-  // Add event listener to the "Choose Image" button
-  document.getElementById('choose-btn').addEventListener('click', async function() {
-    try {
-      // Fetch the image file
-      const response = await fetch("https://raw.githubusercontent.com/gradio-app/gradio/main/test/test_files/bus.png");
-      const imageBlob = await response.blob();
+      <!-- burger icon on mobile -->
+      <nav class="nav__icon lg:hidden" aria-labelledby="header-nav-mobile">
+        <span></span>
+        <span></span>
+        <span></span>
+      </nav>
+    </div>
+  </header>
 
-      // Create Gradio client and make prediction request
-      const app = await client("vikhyatk/moondream2", { hf_token: "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" });
-      const result = await app.predict("/answer_question", [imageBlob, "Hello!!"]);
+  <div class="w-full m-0 p-0 bg-cover bg-bottom"
+    style="background-image: url('./src/img/cover.jpg'); max-height: 2100px">
+    <div class="font-extrabold container max-w-4xl mx-auto pt-28 pb-6 md:pb-10 text-center">
+      <div class="text-white text-2xl md:text-5xl sm:text-4xl">
+        Disease Predictor
+      </div>
+    </div>
+  </div>
 
-      // Display the result in the display-text div
-      document.getElementById('display-text').textContent = result.data;
-    } catch (error) {
-      console.error("An error occurred:", error);
-    }
-  });
+  <main class="container mx-auto px-4 py-8">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div class="bg-white rounded-lg p-4 whitespace-normal">
+      <input title="text-input" type="text" id="text-input" class="w-full px-4 py-2 border border-green-300 rounded-md shadow-sm focus:outline-none"
+      value="fever from past 3 days, cough, throat pain, stomach pain"
+      >
+    </div>
 
-  </script>
-  
+    <div id="display-text" class="bg-white rounded-lg p-4 whitespace-normal">
+      <button id="analyze-btn" class="ds-btn ds-btn-primary ds-btn-wide block w-full mb-4">Analyze</button>
+      <p id="analysis-result" class="p-2">Output will be shown here</p>
 
-<footer class="bg-primary p-10 md:p-[5em]">
+      <!-- Loading animation -->
+      <div id="loading-animation" class="hidden w-full flex justify-center items-center p-2">
+        <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-gray-900"></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+  <footer class="bg-primary p-10 md:p-[5em]">
     <div class="max-w-screen-xl mx-auto flex flex-wrap justify-between gap-3 lg:items-stretch lg:gap-0">
       <!-- col 1 -->
       <div class="w-full flex flex-col justify-between items-center gap-5 lg:w-1/5 lg:pr-5">
@@ -147,27 +92,32 @@ progress[value="1"]::-webkit-progress-value {
         <nav aria-labelledby="social-media-links">
           <ul class="flex gap-5 my-2 lg:my-auto">
             <li>
-              <a class="text-white hover:text-secondary text-xl lg:text-lg" href="#" aria-label="Facebook profile of <b>AI</b>MED">
+              <a class="text-white hover:text-secondary text-xl lg:text-lg" href="#"
+                aria-label="Facebook profile of <b>AI</b>MED">
                 <i class="fa-brands fa-square-facebook"></i>
               </a>
             </li>
             <li>
-              <a class="text-white hover:text-secondary text-xl lg:text-lg" href="#" aria-label="Youtube account of <b>AI</b>MED">
+              <a class="text-white hover:text-secondary text-xl lg:text-lg" href="#"
+                aria-label="Youtube account of <b>AI</b>MED">
                 <i class="fa-brands fa-youtube"></i>
               </a>
             </li>
             <li>
-              <a class="text-white hover:text-secondary text-xl lg:text-lg" href="#" aria-label="Twitter profile of <b>AI</b>MED">
+              <a class="text-white hover:text-secondary text-xl lg:text-lg" href="#"
+                aria-label="Twitter profile of <b>AI</b>MED">
                 <i class="fa-brands fa-twitter"></i>
               </a>
             </li>
             <li>
-              <a class="text-white hover:text-secondary text-xl lg:text-lg" href="#" aria-label="Pinterest profile of <b>AI</b>MED">
+              <a class="text-white hover:text-secondary text-xl lg:text-lg" href="#"
+                aria-label="Pinterest profile of <b>AI</b>MED">
                 <i class="fa-brands fa-pinterest"></i>
               </a>
             </li>
             <li>
-              <a class="text-white hover:text-secondary text-xl lg:text-lg" href="#" aria-label="Instagram profile of <b>AI</b>MED">
+              <a class="text-white hover:text-secondary text-xl lg:text-lg" href="#"
+                aria-label="Instagram profile of <b>AI</b>MED">
                 <i class="fa-brands fa-instagram"></i>
               </a>
             </li>
@@ -195,14 +145,14 @@ progress[value="1"]::-webkit-progress-value {
         <nav aria-labelledby="footer-nav-2">
           <ul class="flex flex-col items-center gap-3 lg:items-start lg:gap-5">
             <li>
-                <a class="text-white hover:text-secondary" href="#">Privacy Policy</a>
-              </li>
-              <li>
-                <a class="text-white hover:text-secondary" href="#">aimed@support.com</a>
-              </li>
-              <li>
-                <a class="text-white hover:text-secondary" href="#">VIT Vellore, Chennai</a>
-              </li>
+              <a class="text-white hover:text-secondary" href="#">Privacy Policy</a>
+            </li>
+            <li>
+              <a class="text-white hover:text-secondary" href="#">aimed@support.com</a>
+            </li>
+            <li>
+              <a class="text-white hover:text-secondary" href="#">VIT Vellore, Chennai</a>
+            </li>
           </ul>
         </nav>
       </div>
@@ -214,37 +164,89 @@ progress[value="1"]::-webkit-progress-value {
         <div class="text-xs lg:text-right">
           Coded by
           <a class="text-secondary" target="_blank" href="https://www.linkedin.com/in/prashantzzz/">Prashant</a>
-          <a class="text-secondary" target="_blank" href="https://www.linkedin.com/in/prashantzzz/">Chirag</a>
-          <a class="text-secondary" target="_blank" href="https://www.linkedin.com/in/prashantzzz/">Anas</a>
         </div>
       </div>
     </div>
   </footer>
 
-<div class="nav__mobile-menu">
+  <div class="nav__mobile-menu">
     <ul class="flex flex-col items-center gap-4">
       <li>
         <a href="LoginSignup.html" class="ds-btn ds-btn-primary ds-btn-wide px-2 py-4">Login / Signup</a>
       </li>
-      <li><a href="index.html" class="font-tertiary text-primary hover:text-secondary">Home</a></li>
-      <li><a href="#" class="font-tertiary text-primary hover:text-secondary">About</a></li>
-      <li><a href="#" class="font-tertiary text-primary hover:text-secondary">Contact</a></li>
-      <li><a href="blogs.html" class="font-tertiary  text-primary hover:text-secondary">Blog</a></li>
+      <li>
+        <a href="index.html" class="font-tertiary text-primary hover:text-secondary">Home</a>
+      </li>
+      <li>
+        <a href="#" class="font-tertiary text-primary hover:text-secondary">About</a>
+      </li>
+      <li>
+        <a href="#" class="font-tertiary text-primary hover:text-secondary">Contact</a>
+      </li>
+      <li>
+        <a href="blogs.html" class="font-tertiary text-primary hover:text-secondary">Blog</a>
+      </li>
     </ul>
-</div>
+  </div>
 
-<script src="https://unpkg.com/@popperjs/core@2"></script>
-<script src="https://unpkg.com/tippy.js@6"></script>
-<script>
-    //Init tooltips
-    tippy('.avatar')
+
+  <script type="importmap">
+    {
+      "imports": {
+        "@google/generative-ai": "https://esm.run/@google/generative-ai"
+      }
+    }
+  </script>
+  <script src="dist/bundle.js"></script>
+  <script type="module">
+  import { GoogleGenerativeAI } from "@google/generative-ai";
+  const API_KEY = "AIzaSyDkOS4Xjuy3F3xYdV_nXnsEU_HEhxZPmgw";
+  const genAI = new GoogleGenerativeAI(API_KEY);
+
+  async function analyzeText() {
+    document.getElementById("analysis-result").textContent = '';
+    const userInput = document.getElementById("text-input").value;
+    const prompt = `I have the following symptoms: ${userInput}. Tell me which disease could I be suffering from and by what percentage? (don't include deseases having <10% probability. Response in point wise descriptive way)`;
+
+    // Show loading animation
+    document.getElementById("loading-animation").classList.remove("hidden");
+
+    const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+    const result = await model.generateContent(prompt);
+    const response = await result.response;
+  let text = await response.text();
+
+  // Replace special characters
+  text = text.replace(/\*\*/g, "");
+  text = text.replace(/\*/g, '⮞');
+  text = text.replace(/\-/g, '⮞'); 
+  //causing in betwee replacements
+
+  // Split text into lines
+  const lines = text.split('\n');
+
+  // Format each line with tabs and convert to HTML
+  const formattedLines = lines.map(line => {
+    // Count leading spaces (tabs)
+    const tabs = (line.match(/^\s*/)[0] || '').replace(/ /g, '&nbsp;&nbsp;');
+    // Remove leading spaces and convert to HTML
+    return `${tabs}${line.trim()}`;
+  });
+
+  // Hide loading animation
+  document.getElementById("loading-animation").classList.add("hidden");
+
+  // Display the output in the 'display-text' div
+  document.getElementById("analysis-result").innerHTML = formattedLines.join('<br>');
+  }
+
+  document.getElementById("analyze-btn").addEventListener("click", analyzeText);
 </script>
-<script src="dist/bundle.js"></script>
 
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script src="https://kit.fontawesome.com/4414288e8e.js"></script>
-<script src='js/tesseract.min.js'></script>
-<script src="js/tesseract-ocr.js"></script>
-    
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js">
+    //fever from past 3 days, cough, throat pain, stomach pain
+  </script>
+  <script src="https://kit.fontawesome.com/4414288e8e.js"></script>
 </body>
+
 </html>
