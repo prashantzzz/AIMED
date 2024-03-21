@@ -167,6 +167,18 @@
         </div>
       </div>
     </div>
+    <script>
+      window.embeddedChatbotConfig = {
+      chatbotId: "9re4cKFG4FhvJwUOBktn5",
+      domain: "www.chatbase.co"
+      }
+      </script>
+      <script
+      src="https://www.chatbase.co/embed.min.js"
+      chatbotId="9re4cKFG4FhvJwUOBktn5"
+      domain="www.chatbase.co"
+      defer>
+      </script>
   </footer>
 
   <div class="nav__mobile-menu">
@@ -199,49 +211,55 @@
   </script>
   <script src="dist/bundle.js"></script>
   <script type="module">
-  import { GoogleGenerativeAI } from "@google/generative-ai";
-  const API_KEY = "AIzaSyDkOS4Xjuy3F3xYdV_nXnsEU_HEhxZPmgw";
-  const genAI = new GoogleGenerativeAI(API_KEY);
-
-  async function analyzeText() {
-    document.getElementById("analysis-result").textContent = '';
-    const userInput = document.getElementById("text-input").value;
-    const prompt = `I have the following symptoms: ${userInput}. Tell me which disease could I be suffering from and by what percentage? (don't include deseases having <10% probability. Response in point wise descriptive way)`;
-
-    // Show loading animation
-    document.getElementById("loading-animation").classList.remove("hidden");
-
-    const model = genAI.getGenerativeModel({ model: "gemini-pro" });
-    const result = await model.generateContent(prompt);
-    const response = await result.response;
-  let text = await response.text();
-
-  // Replace special characters
-  text = text.replace(/\*\*/g, "");
-  text = text.replace(/\*/g, '&diams;');
-  // text = text.replace(/\-/g, '&diams;'); 
-  //causing in betwee replacements
-
-  // Split text into lines
-  const lines = text.split('\n');
-
-  // Format each line with tabs and convert to HTML
-  const formattedLines = lines.map(line => {
-    // Count leading spaces (tabs)
-    const tabs = (line.match(/^\s*/)[0] || '').replace(/ /g, '&nbsp;&nbsp;');
-    // Remove leading spaces and convert to HTML
-    return `${tabs}${line.trim()}`;
-  });
-
-  // Hide loading animation
-  document.getElementById("loading-animation").classList.add("hidden");
-
-  // Display the output in the 'display-text' div
-  document.getElementById("analysis-result").innerHTML = formattedLines.join('<br>');
-  }
-
-  document.getElementById("analyze-btn").addEventListener("click", analyzeText);
+    import { GoogleGenerativeAI } from "@google/generative-ai";
+    const API_KEY = "AIzaSyDkOS4Xjuy3F3xYdV_nXnsEU_HEhxZPmgw";
+    const genAI = new GoogleGenerativeAI(API_KEY);
+  
+    async function analyzeText() {
+        document.getElementById("analysis-result").textContent = '';
+        const userInput = document.getElementById("text-input").value;
+        const prompt = `I have the following symptoms: ${userInput}. Tell me which disease could I be suffering from and by what percentage? 
+            (don't include diseases having <10% probability. Response in point wise descriptive way including probability, symptoms, description, treatment)`;
+      
+        // Show loading animation
+        document.getElementById("loading-animation").classList.remove("hidden");
+      
+        try {
+            const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+            const result = await model.generateContent(prompt);
+            const response = await result.response;
+            let text = await response.text();
+      
+            // Replace special characters
+            text = text.replace(/\*\*/g, "");
+            text = text.replace(/\*/g, '&diams;');
+            
+            // Split text into lines
+            const lines = text.split('\n');
+      
+            // Format each line with tabs and convert to HTML
+            const formattedLines = lines.map(line => {
+                // Count leading spaces (tabs)
+                const tabs = (line.match(/^\s*/)[0] || '').replace(/ /g, '&nbsp;&nbsp;');
+                // Remove leading spaces and convert to HTML
+                return `${tabs}${line.trim()}`;
+            });
+      
+            // Display the output in the 'analysis-result' div
+            document.getElementById("analysis-result").innerHTML = formattedLines.join('<br>');
+        } catch (error) {
+            // Display the error message
+            document.getElementById("analysis-result").textContent = `Error: ${error.message.replace('[GoogleGenerativeAI Error]:','')}`;
+        } finally {
+            // Hide loading animation
+            document.getElementById("loading-animation").classList.add("hidden");
+        }
+    }
+      
+    document.getElementById("analyze-btn").addEventListener("click", analyzeText);
 </script>
+
+  
 
   <script src="https://code.jquery.com/jquery-3.3.1.min.js">
     //fever from past 3 days, cough, throat pain, stomach pain
