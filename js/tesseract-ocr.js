@@ -68,7 +68,9 @@ function progressUpdate(packet) {
         if (packet.status == 'done') {
             log.innerHTML = ''
             var pre = document.createElement('pre')
-            pre.appendChild(document.createTextNode(packet.data.text.replace(/\n\s*\n/g, '\n')))
+            const txt=packet.data.text.replace(/\n\s*\n/g, '\n');
+            console.log(txt);
+            pre.appendChild(document.createTextNode(txt))
             line.innerHTML = ''
             line.appendChild(pre)
         }

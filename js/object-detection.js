@@ -16,9 +16,8 @@ function rem_dup(sentence) {
 
 // Function to perform image to text inference
 async function performImageToTextInference() {
-    const HF_TOKEN = "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"; // Replace <YOUR_HF_TOKEN> with your actual Hugging Face token
-
-    // Creating an instance of HfInference
+    const HF_TOKEN = "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"; 
+    // Creating instance of HfInference
     const inference = new HfInference(HF_TOKEN);
 
     try {
