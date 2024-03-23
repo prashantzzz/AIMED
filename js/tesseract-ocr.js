@@ -73,8 +73,10 @@ function progressUpdate(packet) {
             pre.appendChild(document.createTextNode(txt))
             line.innerHTML = ''
             line.appendChild(pre)
+            document.getElementById("analyze-it").classList.remove("hidden");
         }
-        log.insertBefore(line, log.firstChild)
+        log.insertBefore(line, log.firstChild);
+        
     }
 }
 
@@ -89,7 +91,7 @@ function recognizeAndResizeImage(file) {
         });
         worker.recognize(resizedBlob, $("#langsel").val())
             .progress(function(packet) {
-                console.info(packet);
+                // console.info(packet);
                 progressUpdate(packet);
             })
             .then(function(data) {

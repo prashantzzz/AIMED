@@ -105,11 +105,13 @@ progress[value="1"]::-webkit-progress-value {
                 <div class="image-container bg-gray-200 rounded-lg overflow-hidden">
                     <img id="selected-image" src="" class="max-h-80" alt="Selected Image">
                 </div>
+                <button id="analyze-it" class="ds-btn ds-btn-primary ds-btn-wide block w-full my-2 hidden">
+                  Analyze It!
+                </button>
             </div>
         </div>
         <!-- Div for selecting language and showing the extracted text -->
-        <div>
-            <div id="log" class="bg-white rounded-lg p-4 whitespace-normal">
+        <div id="log" class="bg-white rounded-lg p-4 whitespace-normal">
                 <span id="startPre" class="block text-center whitespace-normal">
                     <button id="startLink" class="ds-btn ds-btn-primary ds-btn-wide block w-full mb-4">
                         Extract Text
@@ -133,7 +135,9 @@ progress[value="1"]::-webkit-progress-value {
                     <option value='ara'> Arabic </option>
                     <option value='tur'> Turkish </option>
                 </select>
-            </div>
+                <div id="loading-animation" class="hidden w-full flex justify-center items-center p-2">
+                  <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-gray-900"></div>
+                </div>
         </div>
     </div>
 </main>
@@ -246,12 +250,62 @@ progress[value="1"]::-webkit-progress-value {
     </ul>
 </div>
 
-<script src="https://unpkg.com/@popperjs/core@2"></script>
-<script src="https://unpkg.com/tippy.js@6"></script>
-<script>
-    //Init tooltips
-    tippy('.avatar')
+<script type="importmap">
+  {
+    "imports": {
+      "@google/generative-ai": "https://esm.run/@google/generative-ai"
+    }
+  }
 </script>
+<script type="module">
+  import { GoogleGenerativeAI } from "@google/generative-ai";
+  const API_KEY = "AIzaSyDkOS4Xjuy3F3xYdV_nXnsEU_HEhxZPmgw";
+  const genAI = new GoogleGenerativeAI(API_KEY);
+
+  async function analyzeText() {
+      const txt=document.getElementById("log").textContent;
+      document.getElementById("log").textContent="Loading insights...";
+      const prompt = `Below is the text from a medical prescription, extract medicine names, dosage and other essential info from it(if present): ${txt}. Mention usage, side effects of the medicines prescribed(if any).`
+      console.log(txt)
+      // Show loading animation
+      //document.getElementById("loading-animation").classList.remove("hidden");
+    
+      try {
+          const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+          const result = await model.generateContent(prompt);
+          const response = await result.response;
+          let text = await response.text();
+    
+          // Replace special characters
+          text = text.replace(/\*\*/g, "");
+          text = text.replace(/\*/g, '&diams;');
+          
+          // Split text into lines
+          const lines = text.split('\n');
+    
+          // Format each line with tabs and convert to HTML
+          const formattedLines = lines.map(line => {
+              // Count leading spaces (tabs)
+              const tabs = (line.match(/^\s*/)[0] || '').replace(/ /g, '&nbsp;&nbsp;');
+              // Remove leading spaces and convert to HTML
+              return `${tabs}${line.trim()}`;
+          });
+    
+          // Display the output in the 'log' div
+          document.getElementById("log").innerHTML = formattedLines.join('<br>');
+      } catch (error) {
+          // Display the error message
+          document.getElementById("log").textContent = `Error: ${error.message.replace('[GoogleGenerativeAI Error]:','')}`;
+      } finally {
+          // Hide loading animation
+          //document.getElementById("loading-animation").classList.add("hidden");
+      }
+  }
+
+  document.getElementById("analyze-it").addEventListener("click", analyzeText);
+
+</script>
+
 <script src="dist/bundle.js"></script>
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
