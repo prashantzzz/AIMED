@@ -67,7 +67,7 @@
     </div>
   </div>
 
-  <main class="container mx-auto px-4 py-8">
+  <main class="container px-4 py-8">
     <div class="grid grid-cols-1 gap-4">
       <div class="bg-white rounded-lg p-8 whitespace-normal">
         <p class="pl-1 pb-2 text-sm">Write the symptoms you are experiencing</p>
@@ -78,7 +78,11 @@
 
       <div id="display-text" class="bg-white rounded-lg p-4 whitespace-normal flex flex-col items-center">
         <button id="analyze-btn" class="ds-btn ds-btn-primary ds-btn-wide mt-4">Analyze</button>
-        <p id="analysis-result" class="p-2"></p>
+        <div id="analysis-result" class="p-2">
+
+
+          
+        </div>
         <!-- Loading animation -->
         <div id="loading-animation" class="hidden w-full flex justify-center items-center p-2">
           <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-gray-900"></div>
@@ -86,7 +90,6 @@
       </div>
     </div>
   </main>
-
 
   <footer class="bg-primary p-10 md:p-[3em]" id="footerid">
     <div class="max-w-screen-xl mx-auto flex flex-wrap justify-between gap-3 lg:items-stretch lg:gap-0">
@@ -179,13 +182,14 @@
       <li>
         <a href="index.html" class="font-tertiary text-primary hover:text-secondary">Home</a>
       </li>
-
       <li>
         <a href="blogs.html" class="font-tertiary text-secondary">Blog</a>
       </li>
     </ul>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/add-to-calendar-button@2" async defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>  
 
   <script src="dist/bundle.js"></script>
   <script type="importmap">
@@ -195,17 +199,83 @@
       }
     }
   </script>
-  <script type="module">
+  <script type="module"> 
     import { GoogleGenerativeAI } from "@google/generative-ai";
     const API_KEY = "AIzaSyDkOS4Xjuy3F3xYdV_nXnsEU_HEhxZPmgw";
     const genAI = new GoogleGenerativeAI(API_KEY);
+
+
+    function generateDiseaseCards(text) {
+      // Parse JSON text to an array of objects
+      const diseases = JSON.parse(text);
+      
+      // Get the element to append the cards
+      const analysisResult = document.getElementById("analysis-result");
+
+
+      // Iterate over each disease object
+      diseases.forEach(disease => {
+        // Create elements for disease card
+        const cardDiv = document.createElement("div");
+        cardDiv.className = "disease-card"; // Add a custom class for the container
+
+        cardDiv.innerHTML = `
+        <div x-data="{ openTab: 1 }" class="p-4">
+          <div class="max-w-md mx-auto">
+            <div class="mb-2 flex space-x-2 p-2 bg-white rounded-lg shadow-sm">
+                <button x-on:click="openTab = 1" :class="{ 'bg-green-500 text-white': openTab === 1 }" class="flex-1 py-2 px-4 rounded-md focus:outline-none focus:shadow-outline-blue transition-all duration-300">Disease</button>
+                <button x-on:click="openTab = 2" :class="{ 'bg-green-500 text-white': openTab === 2 }" class="flex-1 py-2 px-4 rounded-md focus:outline-none focus:shadow-outline-blue transition-all duration-300">Symptom</button>
+                <button x-on:click="openTab = 3" :class="{ 'bg-green-500 text-white': openTab === 3 }" class="flex-1 py-2 px-4 rounded-md focus:outline-none focus:shadow-outline-blue transition-all duration-300">Treatment</button>
+            </div>
+
+            <div x-show="openTab === 1" class="transition-all duration-300 bg-white p-4 rounded-lg shadow-sm border-l-4 border-green-500">
+                <h2 class="text-2xl font-semibold mb-2 text-green-600">${disease.disease}</h2>
+                <span class="bg-green-50 text-green-800 text-xs font-semibold px-2.5 py-1 my-2 rounded">Probability: ${disease.probability}</span>
+                <p class="text-gray-700 mt-2">${disease.description}</p>
+            </div>
+
+            <div x-show="openTab === 2" class="transition-all duration-300 bg-white p-4 rounded-lg shadow-sm border-l-4 border-green-500">
+                <h2 class="text-2xl font-semibold mb-2 text-green-600">Realted Symptoms</h2>
+                <p class="text-gray-700">${disease.treatment}</p>
+            </div>
+
+            <div x-show="openTab === 3" class="transition-all duration-300 bg-white p-4 rounded-lg shadow-sm border-l-4 border-green-500">
+                <h2 class="text-2xl font-semibold mb-2 text-green-600">Suggested Treatments</h2>
+                <p class="text-gray-700">${disease.treatment}</p>
+            </div>
+          </div>
+        </div>
+        `;
+
+        // Append the card to the analysis result container
+        // console.log(cardDiv.innerHTML);   //this code is running well when placed manually, but not when appended
+        analysisResult.appendChild(cardDiv);
+      });
+    }
 
     async function analyzeText() {
       document.getElementById("analysis-result").textContent = '';
       const userInput = document.getElementById("text-input").value;
       const prompt = `I have the following symptoms: ${userInput}. Tell me which disease could I be suffering from and by what percentage? 
-            (don't include diseases having <10% probability. Response in point wise descriptive way including probability, symptoms, description, treatment)`;
-
+(don't include diseases having <10% probability. Respond strctly in following json format only:
+[
+  {
+  "disease": "",
+  "description": "",
+  "probability": "",
+  "symptoms": "",
+  "treatment": ""
+},
+  {
+  "disease": "",
+  "description": "",
+  "probability": "",
+   "symptoms": "",
+  "treatment": ""
+},
+  ...so on
+]
+`;
       // Show loading animation
       document.getElementById("loading-animation").classList.remove("hidden");
 
@@ -213,25 +283,14 @@
         const model = genAI.getGenerativeModel({ model: "gemini-pro" });
         const result = await model.generateContent(prompt);
         const response = await result.response;
-        let text = await response.text();
-
-        // Replace special characters
-        text = text.replace(/\*\*/g, "");
-        text = text.replace(/\*/g, '&diams;');
-
-        // Split text into lines
-        const lines = text.split('\n');
-
-        // Format each line with tabs and convert to HTML
-        const formattedLines = lines.map(line => {
-          // Count leading spaces (tabs)
-          const tabs = (line.match(/^\s*/)[0] || '').replace(/ /g, '&nbsp;&nbsp;');
-          // Remove leading spaces and convert to HTML
-          return `${tabs}${line.trim()}`;
-        });
-
+        let text = await response.text().replace("json","");
+        text = text.replaceAll("```","");
+        text = text.replaceAll("*","");
+        console.log(text);
+ 
         // Display the output in the 'analysis-result' div
-        document.getElementById("analysis-result").innerHTML = formattedLines.join('<br>');
+        //document.getElementById("analysis-result").innerText= text;
+        generateDiseaseCards(text);
       } catch (error) {
         // Display the error message
         document.getElementById("analysis-result").textContent = `Error: ${error.message.replace('[GoogleGenerativeAI Error]:', '')}`;
@@ -243,8 +302,6 @@
 
     document.getElementById("analyze-btn").addEventListener("click", analyzeText);
   </script>
-
-
 
   <script src="https://code.jquery.com/jquery-3.3.1.min.js">
   </script>

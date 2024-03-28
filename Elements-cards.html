@@ -1,0 +1,40 @@
+<script src="https://cdn.jsdelivr.net/npm/add-to-calendar-button@2" async defer></script>
+<script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
+
+<!-- https://add-to-calendar-button.com/ -->
+<div class="m-4">
+<add-to-calendar-button class="m-4" name="Sample Event" description="Play with me!" startDate="2024-04-09"
+  startTime="08:00" endDate="2024-04-15" endTime="08:05" timeZone="Asia/Calcutta" recurrence="daily"
+  recurrence_interval="1" options="'Google'" size="4"></add-to-calendar-button>
+<!-- https://calendar.google.com/calendar/u/0/r/eventedit?dates=20240409T080000/20240415T080500&ctz=Asia/Calcutta&text=Sample+Event&details=Play+with+me!&recur=RRULE:FREQ%3DDAILY;WKST%3DMO;INTERVAL%3D1 -->
+</div>
+
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+
+
+    <div x-data="{ openTab: 1 }" class="p-4">
+        <div class="max-w-md mx-auto">
+            <div class="mb-2 flex space-x-2 p-2 bg-white rounded-lg shadow-sm">
+                <button x-on:click="openTab = 1" :class="{ 'bg-green-500 text-white': openTab === 1 }" class="flex-1 py-2 px-4 rounded-md focus:outline-none focus:shadow-outline-blue transition-all duration-300">Disease</button>
+                <button x-on:click="openTab = 2" :class="{ 'bg-green-500 text-white': openTab === 2 }" class="flex-1 py-2 px-4 rounded-md focus:outline-none focus:shadow-outline-blue transition-all duration-300">Symptom</button>
+                <button x-on:click="openTab = 3" :class="{ 'bg-green-500 text-white': openTab === 3 }" class="flex-1 py-2 px-4 rounded-md focus:outline-none focus:shadow-outline-blue transition-all duration-300">Treatment</button>
+            </div>
+
+            <div x-show="openTab === 1" class="transition-all duration-300 bg-white p-4 rounded-lg shadow-sm border-l-4 border-green-500">
+                <h2 class="text-2xl font-semibold mb-2 text-green-600">${disease.disease}</h2>
+                <span class="bg-green-50 text-green-800 text-xs font-semibold px-2.5 py-1 my-2 rounded">Probability: ${disease.probability}</span>
+                <p class="text-gray-700 mt-2">${disease.description}</p>
+            </div>
+
+            <div x-show="openTab === 2" class="transition-all duration-300 bg-white p-4 rounded-lg shadow-sm border-l-4 border-green-500">
+                <h2 class="text-2xl font-semibold mb-2 text-green-600">Realted Symptoms</h2>
+                <p class="text-gray-700">${disease.treatment}</p>
+            </div>
+
+            <div x-show="openTab === 3" class="transition-all duration-300 bg-white p-4 rounded-lg shadow-sm border-l-4 border-green-500">
+                <h2 class="text-2xl font-semibold mb-2 text-green-600">Suggested Treatments</h2>
+                <p class="text-gray-700">${disease.treatment}</p>
+            </div>
+        </div>
+    </div>
+
