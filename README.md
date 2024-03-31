@@ -36,5 +36,5 @@ Contributions to the Health Companion App are welcome! If you'd like to contribu
 ## Acknowledgements
 
 We would like to thank all contributors to this project for their valuable contributions and support in making the Health Companion App a useful tool for promoting health and well-being.
-For any questions or feedback, please contact [email@example.com](mailto:prashant2003prashant@gmail.com).
+For any questions or feedback, please contact [Developer](https://www.linkedin.com/in/prashantzz/).
 Enjoy using the Health Companion App and stay healthy!
