@@ -6,9 +6,7 @@ Website and App
 
 https://github.com/prashantzzz/AIMED/assets/60565847/11468619-347f-490d-8145-2d7d5078260d
 
-Website: https://prashantzzz.github.io/AIMED/
-
-App: https://www.upload-apk.com/daN7mWgvAnh10VM
+<a href="https://prashantzzz.github.io/AIMED/" class="button-84" role="button">Website</a>  <a href="https://www.upload-apk.com/daN7mWgvAnh10VM" class="button-84" role="button">App</a>
 
 ## Features
 
