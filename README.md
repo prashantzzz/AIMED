@@ -10,14 +10,17 @@ https://github.com/prashantzzz/AIMED/assets/60565847/11468619-347f-490d-8145-2d7
 
 ## Features
 
-### `1. Disease Prediction`
-The webapp includes an interface for detecting and predicting diseases based on user's symptoms. Additionally, it offers personalized diet and food recommendations tailored to each user's specific health conditions and nutritional needs, facilitating optimal health management and disease prevention.
+### 1. Disease Prediction
+The webapp includes an interface for detecting and predicting diseases on an early stage based on user's symptoms. Additionally, it offers treatment, diet & food recommendations tailored to each user's specific health conditions facilitating optimal health management and disease prevention.
 
-### `2. Prescription / Medicine Analysis`
-Users can analyze dctor's prescription & medicine images and it automatically lists the uses and side effects of the medicine and suggests alternative options based on user preferences and medical history, ensuring informed decision-making regarding medication choices.
+### 2. Prescription / Medicine Analysis
+Users can analyze dctor's prescription & medicine images and it automatically lists the uses and side effects of the medicine and corresponding treatment and diet recommendation.
 
-### `3. Tech in Health Articles`
-It provides access to a collection of health articles aimed at promoting a healthy lifestyle in a technological way. Users can explore articles covering various topics such as mental health, tech advancements in the field of Health and preventive care to stay informed and inspired on their wellness journey.
+### 3. Medical Tool Analysis
+Users can analyze a medical tool & can get instant directions on how to use it with step by step guide with video tutorials (Feature is under progress..).
+
+### 4. Tech in Health Articles
+It provides access to a collection of health articles aimed at promoting a healthy lifestyle in a technological way.
 
 ## Usage
 
@@ -28,6 +31,12 @@ To run locally:
 git clone https://github.com/prashantzzz/AIMED.git
 ```
 Then run the file ```index.html``` in any browser.
+
+## Tech Stack
+Built using **prompt engineering** on ```Generative AI by google.```
+
+```Frontend``` Tailwind.css, DS.css, Fontawesome
+```Backend``` Appwrite, GenAI
 
 ## Contributing
 
