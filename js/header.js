@@ -1,5 +1,5 @@
 let appHeader = `
-<header class="fixed w-full lg:px-[5em] z-50 bg-white overflow-x-hidden">
+<header class="fixed w-full lg:px-[5em] z-50 bg-white overflow-x-hidden drop-shadow-sm">
     <div class="container max-w-screen-xl mx-auto flex justify-between items-center p-5 lg:py-0">
         <a href="./"><img src="./src/img/aimed-removed.png" alt="brand logo"
                 style="max-width: 160px; height: auto" /></a>
